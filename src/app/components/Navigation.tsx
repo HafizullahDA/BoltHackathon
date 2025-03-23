@@ -38,7 +38,7 @@ export const Navigation = () => {
               className="text-2xl font-bold text-white"
               whileHover={{ scale: 1.05 }}
             >
-              Bolt.New
+              hackathon.dev
             </motion.h1>
           </div>
 

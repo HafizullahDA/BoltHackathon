@@ -55,10 +55,10 @@ export const HeroSection = () => {
 
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <motion.h1
-          className="text-6xl md:text-8xl font-bold mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
+          className="text-6xl font-bold mb-4"
         >
           <span className="bg-gradient-to-r from-[#00f5ff] to-[#8A2BE2] text-transparent bg-clip-text">
             BOLT
@@ -479,8 +479,19 @@ export const JudgesSection = () => {
 };
 
 export const SponsorsSection = () => {
+  const sponsors = [
+    { name: 'TechCorp', logo: '🏢' },
+    { name: 'InnovateLabs', logo: '🔬' },
+    { name: 'CloudTech', logo: '☁️' },
+    { name: 'DataSystems', logo: '💾' },
+    { name: 'AIVentures', logo: '🤖' },
+    { name: 'BlockChain Co', logo: '⛓️' },
+    { name: 'SecureNet', logo: '🔒' },
+    { name: 'FutureTech', logo: '🚀' },
+  ];
+
   return (
-    <section id="sponsors" className="min-h-screen py-20 px-4 relative">
+    <section id="sponsors" className="min-h-screen py-20 px-4 relative overflow-hidden">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -489,136 +500,79 @@ export const SponsorsSection = () => {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center neon-text">Our Sponsors</h2>
         
-        {/* Industry Giants Infinite Loop */}
-        <div className="mb-20 overflow-hidden">
-          <h3 className="text-2xl font-bold mb-8 text-center text-[#00f5ff]">Powered by Industry Giants</h3>
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold mb-8 text-center text-[#00f5ff]">Platinum Partners</h3>
           
           <div className="relative">
             {/* First Row - Moving Left */}
             <motion.div
-              className="flex gap-6 mb-6"
+              className="flex gap-8 mb-8"
               animate={{
-                x: [0, -1920],
+                x: [0, -1920]
               }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 15,
-                  ease: "linear",
-                },
+                  duration: 20,
+                  ease: "linear"
+                }
               }}
             >
-              {[...Array(8)].map((_, index) => (
+              {[...sponsors, ...sponsors].map((sponsor, index) => (
                 <motion.div
                   key={index}
-                  className="glass p-3 rounded-lg flex-shrink-0 cursor-pointer relative group"
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: "0 0 20px rgba(0, 245, 255, 0.5)",
-                    backgroundColor: "rgba(0, 245, 255, 0.1)",
-                    zIndex: 10
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeOut"
-                  }}
+                  className="flex-shrink-0 glass p-6 rounded-xl w-48 h-48 flex items-center justify-center
+                           hover:bg-[#00f5ff]/10 transition-colors cursor-pointer group"
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#00f5ff] to-[#8A2BE2] rounded-lg 
-                               flex items-center justify-center transition-all duration-300
-                               group-hover:shadow-lg group-hover:shadow-[#00f5ff]/20 relative overflow-hidden">
-                    {/* Animated gradient overlay */}
-                    <motion.div
-                      className="absolute inset-0"
-                      animate={{
-                        background: [
-                          "linear-gradient(0deg, transparent, #ffffff10, transparent)",
-                          "linear-gradient(180deg, transparent, #ffffff10, transparent)",
-                        ],
-                        y: ["-100%", "100%"]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    />
-                    <div className="text-xl font-bold text-white opacity-50 group-hover:opacity-100
-                                  transition-all duration-300 relative z-10">
-                      {String.fromCharCode(65 + index)}
-                    </div>
+                  <div className="text-6xl group-hover:scale-110 transition-transform">
+                    {sponsor.logo}
                   </div>
-                  {/* Enhanced hover gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#00f5ff]/0 via-[#00f5ff]/5 to-[#8A2BE2]/0 
-                                opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg"></div>
+                  <div className="absolute bottom-2 left-0 right-0 text-center text-sm text-[#00f5ff] opacity-0 
+                                group-hover:opacity-100 transition-opacity">
+                    {sponsor.name}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
 
             {/* Second Row - Moving Right */}
             <motion.div
-              className="flex gap-6"
+              className="flex gap-8"
               animate={{
-                x: [-1920, 0],
+                x: [-1920, 0]
               }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 15,
-                  ease: "linear",
-                },
+                  duration: 20,
+                  ease: "linear"
+                }
               }}
             >
-              {[...Array(8)].map((_, index) => (
+              {[...sponsors, ...sponsors].map((sponsor, index) => (
                 <motion.div
                   key={index}
-                  className="glass p-3 rounded-lg flex-shrink-0 cursor-pointer relative group"
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: "0 0 20px rgba(138, 43, 226, 0.5)",
-                    backgroundColor: "rgba(138, 43, 226, 0.1)",
-                    zIndex: 10
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeOut"
-                  }}
+                  className="flex-shrink-0 glass p-6 rounded-xl w-48 h-48 flex items-center justify-center
+                           hover:bg-[#8A2BE2]/10 transition-colors cursor-pointer group"
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#8A2BE2] to-[#00f5ff] rounded-lg 
-                               flex items-center justify-center transition-all duration-300
-                               group-hover:shadow-lg group-hover:shadow-[#8A2BE2]/20 relative overflow-hidden">
-                    {/* Animated gradient overlay */}
-                    <motion.div
-                      className="absolute inset-0"
-                      animate={{
-                        background: [
-                          "linear-gradient(0deg, transparent, #ffffff10, transparent)",
-                          "linear-gradient(180deg, transparent, #ffffff10, transparent)",
-                        ],
-                        y: ["-100%", "100%"]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    />
-                    <div className="text-xl font-bold text-white opacity-50 group-hover:opacity-100
-                                  transition-all duration-300 relative z-10">
-                      {String.fromCharCode(73 + index)}
-                    </div>
+                  <div className="text-6xl group-hover:scale-110 transition-transform">
+                    {sponsor.logo}
                   </div>
-                  {/* Enhanced hover gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#8A2BE2]/0 via-[#8A2BE2]/5 to-[#00f5ff]/0 
-                                opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg"></div>
+                  <div className="absolute bottom-2 left-0 right-0 text-center text-sm text-[#8A2BE2] opacity-0 
+                                group-hover:opacity-100 transition-opacity">
+                    {sponsor.name}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
         </div>
 
-        {/* Become a Sponsor */}
+        {/* Become a Sponsor CTA */}
         <motion.div
           className="mt-20 text-center"
           initial={{ opacity: 0 }}
@@ -631,8 +585,7 @@ export const SponsorsSection = () => {
             className="px-8 py-4 text-xl font-bold text-white bg-gradient-to-r from-[#00f5ff] to-[#8A2BE2] rounded-full"
             whileHover={{ 
               scale: 1.05,
-              textShadow: "0 0 8px rgb(255,255,255)",
-              boxShadow: "0 0 15px rgb(0,245,255)"
+              boxShadow: "0 0 20px rgba(0,245,255,0.5)"
             }}
             whileTap={{ scale: 0.95 }}
           >

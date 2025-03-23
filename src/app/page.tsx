@@ -12,6 +12,7 @@ import {
   Footer
 } from './components/Sections';
 import { Navigation } from './components/Navigation';
+import { TwitterFeed } from './components/TwitterFeed';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <TimelineSection />
       <JudgesSection />
       <SponsorsSection />
+      <TwitterFeed />
       <RegistrationSection />
       <FAQSection />
       <Footer />
